@@ -8,3 +8,5 @@ include(${wxWidgets_USE_FILE})
 
 add_executable(wxTest frame.cpp app.cpp)
 target_link_libraries(wxTest PRIVATE ${wxWidgets_LIBRARIES})
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/img DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
