@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 include(${wxWidgets_USE_FILE})
 
-add_executable(wxTest main.cpp)
+add_executable(wxTest frame.cpp app.cpp)
 target_link_libraries(wxTest PRIVATE ${wxWidgets_LIBRARIES})
