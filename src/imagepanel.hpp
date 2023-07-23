@@ -2,6 +2,7 @@
 
 class wxImagePanel : public wxPanel
 {
+protected:
     wxBitmap image;
     
 public:
@@ -10,7 +11,7 @@ public:
     void paintEvent(wxPaintEvent & evt);
     void paintNow();
     
-    void render(wxDC& dc);
+    virtual void render(wxDC& dc);
 
     
     DECLARE_EVENT_TABLE()
