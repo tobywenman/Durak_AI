@@ -5,5 +5,5 @@ class MyFrame : public wxFrame
 public:
     MyFrame(const wxString& title);
 private:
-
+    void OnPaint(wxPaintEvent&);
 };
