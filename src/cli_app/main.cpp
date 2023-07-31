@@ -6,6 +6,7 @@
 #include <string>
 #include <algorithm>
 #include <random>
+#include <chrono>
 
 unsigned get_player_num()
 {
@@ -59,6 +60,7 @@ game::game(unsigned playerCount)
 void game::shuffleDeck()
 {
     auto rng = std::default_random_engine {};
+    rng.seed(std::chrono::system_clock::now().time_since_epoch().count());
     std::shuffle(deck.begin(), deck.end(), rng);
 }
 
