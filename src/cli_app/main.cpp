@@ -38,7 +38,7 @@ int main()
 {
     std::cout << "Durak AI game\n";
     
-    get_player_num();
+    game testGame(get_player_num());
     
     
 }
