@@ -2,6 +2,7 @@
 #include <vector>
 
 #include "cards.hpp"
+#include "game.hpp"
 
 class InvalidPlayerCount : std::exception
 {
@@ -9,14 +10,9 @@ class InvalidPlayerCount : std::exception
 
 unsigned get_player_num();
 
-class game
+class cliGame : public engine::game
 {
     public:
-        game(unsigned playerCount);
-        void printDeck();      
-    private:
-        void deal();
-        void shuffleDeck();
-        
-        std::vector<engine::cards> deck;
+        using engine::game::game;
+        void displayDeck();
 };

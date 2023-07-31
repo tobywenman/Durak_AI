@@ -21,25 +21,6 @@ namespace engine
         public:
             std::bitset<52> cards;
     };
-
-    class player
-    {
-        private:
-            cardStack hand;
-            unsigned handSize;
-            
-    };
-
-    class game
-    {
-        public:
-            game(unsigned numPlayers);
-        private:
-            std::bitset<52> pickUpStack;
-            std::vector<player> players;
-            suits trump;
-    };
-
     
 };
 
