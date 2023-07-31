@@ -1,5 +1,5 @@
 #include <exception>
-#include <stack>
+#include <vector>
 
 #include "cards.hpp"
 
@@ -13,6 +13,10 @@ class game
 {
     public:
         game(unsigned playerCount);
+        void printDeck();      
     private:
-        std::stack<engine::cards> deck;
+        void deal();
+        void shuffleDeck();
+        
+        std::vector<engine::cards> deck;
 };

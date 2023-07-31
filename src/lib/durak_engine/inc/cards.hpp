@@ -1,3 +1,6 @@
+#ifndef __cards_hpp
+#define __cards_hpp
+
 namespace engine
 {
     enum cards
@@ -59,3 +62,5 @@ namespace engine
         ClubsKing     = 0b0000000000000000000000000000000000000000000000000001
     };
 };
+
+#endif
