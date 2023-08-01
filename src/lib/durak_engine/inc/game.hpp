@@ -12,6 +12,7 @@ namespace engine
             game(unsigned playerCount);
             virtual void displayDeck() = 0;     
             void update();
+            cards trump;
         protected:
             void deal();
             void shuffleDeck();

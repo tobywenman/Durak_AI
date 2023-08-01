@@ -26,6 +26,8 @@ namespace engine
                 deck.pop_back();
             }
         }
+
+        trump = deck.front();
     }
 
     game::game(unsigned playerCount)
