@@ -1,6 +1,7 @@
 #include <vector>
 
 #include "cards.hpp"
+#include "player.hpp"
 
 namespace engine
 {
@@ -10,10 +11,11 @@ namespace engine
         public:
             game(unsigned playerCount);
             virtual void displayDeck() = 0;     
+            void update();
         protected:
             void deal();
             void shuffleDeck();
-            
+            std::vector<player*> players;
             std::vector<cards> deck;
     };
 

@@ -18,10 +18,23 @@ namespace engine
         }
 
         shuffleDeck();
+        for (unsigned i=0; i<6; i++)
+        {
+            for (std::vector<player*>::iterator it=players.begin(); it != players.end(); it++)
+            {
+                (*it)->giveCard(deck.back());
+                deck.pop_back();
+            }
+        }
     }
 
     game::game(unsigned playerCount)
     {
+        for (unsigned i=0; i<playerCount; i++)
+        {
+            players.push_back(new player);
+        }
+
         deal();
     }
 
