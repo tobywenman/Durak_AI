@@ -13,6 +13,7 @@ namespace engine
     public:
         attack(cards _card);
         void defend(cards _card);
+        std::bitset<52> getCards();
     };
 
     class table

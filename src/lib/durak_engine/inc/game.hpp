@@ -20,7 +20,7 @@ namespace engine
             unsigned playerCount;
             void deal();
             void shuffleDeck();
-            std::vector<player*> players;
+            std::vector<player> players;
             std::vector<cards> deck;
     };
 
