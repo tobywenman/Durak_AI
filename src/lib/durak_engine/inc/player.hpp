@@ -21,7 +21,7 @@ namespace engine
 
         void giveCard(cards _card);
         void setState(state _newState);      
-        void getMove();
+        virtual void getMove();
     };
     
 }

@@ -28,6 +28,22 @@ namespace engine
         }
 
         trump = deck.front();
+
+        for (unsigned i=0; i<players.size();i++)
+        {
+            switch (i)
+            {
+            case 0:
+                players[i]->setState(player::state::attacker);
+                break;
+            case 1:
+                players[i]->setState(player::state::defender);
+                break;
+            default:
+                players[i]->setState(player::state::spectator);
+                break;
+            }   
+        }
     }
 
     game::game(unsigned playerCount)
