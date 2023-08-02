@@ -46,13 +46,13 @@ namespace engine
         }
     }
 
-    game::game(unsigned playerCount)
+    game::game(unsigned _playerCount)
     {
-        for (unsigned i=0; i<playerCount; i++)
+        for (unsigned i=0; i<_playerCount; i++)
         {
-            players.push_back(new player);
+            players.push_back(new player(gameTable));
         }
-
+        playerCount = _playerCount;
         deal();
     }
 
@@ -62,6 +62,21 @@ namespace engine
         auto rng = std::default_random_engine {};
         rng.seed(std::chrono::system_clock::now().time_since_epoch().count());
         std::shuffle(deck.begin(), deck.end(), rng);
+    }
+
+    void game::update()
+    {
+        while (!gameTable.isFinished())
+        {
+            for (std::vector<player*>::iterator it=players.begin(); it != players.end(); it++)
+            {
+                (*it)->getMove();
+            }
+        }
+        std::rotate(players.begin(),players.begin()+1,players.end());
+        players[0]->setState(player::state::attacker);
+        players[1]->setState(player::state::defender);
+        players.back()->setState(player::state::spectator);
     }
 
 }

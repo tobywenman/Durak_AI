@@ -2,7 +2,10 @@
 
 namespace engine
 {
-    player::player(){};
+    player::player(table& _table) : playerTable(_table)
+    {
+
+    };
 
     void player::giveCard(cards _card)
     {

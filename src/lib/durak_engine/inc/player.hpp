@@ -1,6 +1,7 @@
 #include <bitset>
 
 #include "cards.hpp"
+#include "table.hpp"
 
 namespace engine
 {
@@ -16,8 +17,9 @@ namespace engine
     private:
         std::bitset<52> hand;
         state curState;
+        table playerTable;
     public:
-        player();
+        player(table& _table);
 
         void giveCard(cards _card);
         void setState(state _newState);      
