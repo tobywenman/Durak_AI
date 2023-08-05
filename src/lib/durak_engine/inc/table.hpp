@@ -25,7 +25,7 @@ namespace engine
         std::vector<attack> attacks;
     public:
         table();
-        bool isFinished(){return false;};
+        bool isFinished(){return true;};
         void newAttack(cards _card);
         std::bitset<52> pickup();
     };    

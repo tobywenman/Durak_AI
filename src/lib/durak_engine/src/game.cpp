@@ -20,9 +20,9 @@ namespace engine
         shuffleDeck();
         for (unsigned i=0; i<6; i++)
         {
-            for (std::vector<player>::iterator it=players.begin(); it != players.end(); it++)
+            for (std::vector<player*>::iterator it=players.begin(); it != players.end(); it++)
             {
-                it->giveCard(deck.back());
+                (*it)->giveCard(deck.back());
                 deck.pop_back();
             }
         }
@@ -34,29 +34,28 @@ namespace engine
             switch (i)
             {
             case 0:
-                players[i].setState(player::state::attacker);
+                players[i]->setState(player::state::attacker);
                 break;
             case 1:
-                players[i].setState(player::state::defender);
+                players[i]->setState(player::state::defender);
                 break;
             default:
-                players[i].setState(player::state::spectator);
+                players[i]->setState(player::state::spectator);
                 break;
             }   
         }
     }
 
-    game::game(unsigned _playerCount)
+    game::game()
     {
-        for (unsigned i=0; i<_playerCount; i++)
-        {
-            player newPlayer(gameTable);
-            players.push_back(newPlayer);
-        }
-        playerCount = _playerCount;
-        deal();
+        playerCount = 0;
     }
 
+    void game::addPlayer(player *_player)
+    {
+        players.push_back(_player);
+        playerCount++;
+    }
 
     void game::shuffleDeck()
     {
@@ -67,13 +66,14 @@ namespace engine
 
     void game::update()
     {
-        while (!gameTable.isFinished())
+        do
         {
-            for (std::vector<player>::iterator it=players.begin(); it != players.end(); it++)
+            for (std::vector<player*>::iterator it=players.begin(); it != players.end(); it++)
             {
-                it->getMove();
+                (*it)->getMove();
             }
         }
+        while (!gameTable.isFinished());
     }
 
 }

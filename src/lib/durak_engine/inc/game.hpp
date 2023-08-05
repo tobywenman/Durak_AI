@@ -10,17 +10,20 @@ namespace engine
     class game
     {
         public:
-            game(unsigned _playerCount);
+            game();
             virtual void displayDeck() = 0;     
             void update();
+            void deal();
+            void addPlayer(player *_player);
             cards trump;
-        protected:
             table gameTable;
+        protected:
+            
             unsigned turnIndex;
             unsigned playerCount;
-            void deal();
+            
             void shuffleDeck();
-            std::vector<player> players;
+            std::vector<player*> players;
             std::vector<cards> deck;
     };
 

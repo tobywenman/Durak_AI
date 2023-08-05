@@ -1,5 +1,7 @@
 #include "player.hpp"
 
+#include <iostream>
+
 namespace engine
 {
     player::player(table& _table) : playerTable(_table)
@@ -16,4 +18,15 @@ namespace engine
     {
         curState = _newState;
     }
+
+    void player::getMove()
+    {
+        std::cout << "virtual player\n";
+    }
+
+    void ai::getMove()
+    {
+        std::cout << "ai player\n";
+    }
+
 }

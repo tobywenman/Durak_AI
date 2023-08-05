@@ -1,3 +1,6 @@
+#ifndef __player_hpp
+#define __player_hpp
+
 #include <bitset>
 
 #include "cards.hpp"
@@ -24,7 +27,16 @@ namespace engine
 
         void giveCard(cards _card);
         void setState(state _newState);      
-        virtual void getMove(){};
+        virtual void getMove();
+    };
+
+    class ai : public player
+    {
+        public:
+            using player::player;
+            void getMove() override;
     };
     
 }
+
+#endif

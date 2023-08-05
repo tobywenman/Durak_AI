@@ -9,6 +9,6 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../lib ${CMAKE_CURRENT_BINARY_DIR}/
 
 add_executable(${PROJECT_NAME})
 
-target_sources(${PROJECT_NAME} PRIVATE main.cpp cardPrint.cpp)
+target_sources(${PROJECT_NAME} PRIVATE main.cpp cardPrint.cpp cliPlayer.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE durak_engine)

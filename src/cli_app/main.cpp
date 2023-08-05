@@ -1,6 +1,7 @@
 #include "engine.hpp"
 #include "main.hpp"
 #include "cardPrint.hpp"
+#include "cliPlayer.hpp"
 
 #include <iostream>
 
@@ -46,8 +47,21 @@ int main()
 {
     std::cout << "Durak AI game\n";
     
-    cliGame testGame(get_player_num());
+    cliGame testGame;
+
+    cliPlayer* p1 = new cliPlayer(testGame.gameTable);
+
+    testGame.addPlayer(p1);
+
+    unsigned playerNum = get_player_num();
+
+    for (unsigned i=0; i<(playerNum-1); i++)
+    {
+        engine::ai* _ai = new engine::ai(testGame.gameTable);
+        testGame.addPlayer(_ai);
+    }
     
-    testGame.displayDeck();
+    testGame.update();
+
     
 }
