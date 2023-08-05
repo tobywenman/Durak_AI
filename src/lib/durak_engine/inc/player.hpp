@@ -20,10 +20,11 @@ namespace engine
         table playerTable;
     public:
         player(table& _table);
+        ~player(){};
 
         void giveCard(cards _card);
         void setState(state _newState);      
-        virtual void getMove();
+        virtual void getMove(){};
     };
     
 }

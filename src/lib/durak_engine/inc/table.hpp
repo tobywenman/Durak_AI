@@ -1,3 +1,6 @@
+#ifndef __table_hpp
+#define __table_hpp
+
 #include <vector>
 #include <bitset>
 
@@ -13,7 +16,7 @@ namespace engine
     public:
         attack(cards _card);
         void defend(cards _card);
-        std::bitset<52> getCards();
+        std::bitset<52> getCards(){return 0;};
     };
 
     class table
@@ -22,8 +25,10 @@ namespace engine
         std::vector<attack> attacks;
     public:
         table();
-        bool isFinished();
+        bool isFinished(){return false;};
         void newAttack(cards _card);
         std::bitset<52> pickup();
     };    
 }
+
+#endif

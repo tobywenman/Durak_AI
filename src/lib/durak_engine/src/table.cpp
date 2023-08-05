@@ -4,6 +4,9 @@ namespace engine
 {
     table::table(){};
 
+    attack::attack(cards _card) : attacker(_card){};
+    
+
     void table::newAttack(cards _card)
     {
         attack newAttack(_card);
@@ -17,6 +20,7 @@ namespace engine
         {
             pickupCards |= it->getCards();
         }
+        return pickupCards;
     }
 
 }
