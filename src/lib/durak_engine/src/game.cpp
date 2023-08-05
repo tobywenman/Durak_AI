@@ -74,10 +74,6 @@ namespace engine
                 it->getMove();
             }
         }
-        std::rotate(players.begin(),players.begin()+1,players.end());
-        players[0].setState(player::state::attacker);
-        players[1].setState(player::state::defender);
-        players.back().setState(player::state::spectator);
     }
 
 }

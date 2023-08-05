@@ -17,7 +17,7 @@ namespace engine
     private:
         std::bitset<52> hand;
         state curState;
-        table playerTable;
+        table &playerTable;
     public:
         player(table& _table);
         ~player(){};
