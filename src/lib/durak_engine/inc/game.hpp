@@ -21,6 +21,7 @@ namespace engine
             
             unsigned turnIndex;
             unsigned playerCount;
+            bool turnInFlight;
             
             void shuffleDeck();
             std::vector<player*> players;

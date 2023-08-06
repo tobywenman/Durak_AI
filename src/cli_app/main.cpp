@@ -61,7 +61,8 @@ int main()
         testGame.addPlayer(_ai);
     }
     
-    testGame.update();
+    testGame.deal();
 
+    p1->showHand();
     
 }

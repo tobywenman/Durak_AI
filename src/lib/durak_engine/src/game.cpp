@@ -49,6 +49,8 @@ namespace engine
     game::game()
     {
         playerCount = 0;
+        turnInFlight = false;
+        turnIndex = 0;
     }
 
     void game::addPlayer(player *_player)
@@ -66,14 +68,16 @@ namespace engine
 
     void game::update()
     {
-        do
+        if (!turnInFlight)
         {
-            for (std::vector<player*>::iterator it=players.begin(); it != players.end(); it++)
-            {
-                (*it)->getMove();
-            }
+            players[turnIndex]->getAttack();
+            turnInFlight = true;
         }
-        while (!gameTable.isFinished());
+
+        for (std::vector<player*>::iterator it=players.begin(); it != players.end(); it++)
+        {
+            (*it)->getMove();
+        }
     }
 
 }

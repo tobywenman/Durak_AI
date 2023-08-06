@@ -17,7 +17,7 @@ namespace engine
             defender,
             spectator
         };
-    private:
+    protected:
         std::bitset<52> hand;
         state curState;
         table &playerTable;
@@ -28,6 +28,7 @@ namespace engine
         void giveCard(cards _card);
         void setState(state _newState);      
         virtual void getMove();
+        virtual void getAttack(){};
     };
 
     class ai : public player
