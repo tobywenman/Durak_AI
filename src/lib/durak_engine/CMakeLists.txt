@@ -8,13 +8,13 @@ else()
     message(STATUS "This project is a top-level one")
 endif()
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(${PROJECT_NAME} STATIC)
 
 
-target_sources(${PROJECT_NAME} PRIVATE src/printTest.cpp src/game.cpp src/player.cpp src/table.cpp)
+target_sources(${PROJECT_NAME} PRIVATE src/cards.cpp)
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
