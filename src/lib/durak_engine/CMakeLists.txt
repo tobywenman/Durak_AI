@@ -14,7 +14,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(${PROJECT_NAME} STATIC)
 
 
-target_sources(${PROJECT_NAME} PRIVATE src/cards.cpp)
+target_sources(${PROJECT_NAME} PRIVATE src/cards.cpp
+                                       src/player.cpp
+                                       src/game.cpp)
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
@@ -27,6 +29,5 @@ target_include_directories(${PROJECT_NAME}
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-set(public_headers include/engine.hpp)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")

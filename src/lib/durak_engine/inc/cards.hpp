@@ -61,6 +61,18 @@ enum class card_t : std::uint64_t
     ClubsKing     = 0b0000000000000000000000000000000000000000000000000001
 };
 
+enum class suit_t
+{
+    hearts,
+    clubs,
+    spades,
+    diamonds,
+};
+
+suit_t getSuit(card_t card);
+
+std::uint8_t getCardValue(card_t card);
+
 std::ostream& operator<<(std::ostream& os, const card_t& card);
 
 // A bitset style container to hold a set of cards. 
@@ -81,6 +93,8 @@ class hand_t
 
         class invalidDeckException : public std::exception{};
 
+        bool containsValue(std::uint8_t value) const;
+
     private:
         std::uint64_t hand;
 };
@@ -94,6 +108,8 @@ class cardStack_t
         void shuffle();
 
         card_t pop();
+
+        void pushBack(card_t card);
 
         std::uint8_t size() const;
     
