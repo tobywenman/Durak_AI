@@ -7,8 +7,6 @@ class player_t
 
         void giveCard(card_t card);
         void pickUp(hand_t pickups);
-    private:
-
 
         enum class state_t
         {
@@ -18,6 +16,10 @@ class player_t
             firstDefend,
             secondDefend,
         };
+        
+    private:
+
+
 
         unsigned id;
         hand_t hand;
